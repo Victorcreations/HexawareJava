@@ -14,7 +14,11 @@ public class DBConnection{
         String[] userCredentials = PropertyUtil.getUserNameAndPassword();
 
         try{
-            connection = DriverManager.getConnection(url,userCredentials[0],userCredentials[1]);
+
+            if(connection != null)
+            {
+                connection = DriverManager.getConnection(url,userCredentials[0],userCredentials[1]);
+            }
             
         }catch(Exception e){
             throw new SQLException("Error in making the connectoin " + e.getMessage());
